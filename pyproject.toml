@@ -1,0 +1,32 @@
+[project]
+name = "blog.amber.org blog migrator"
+version = "v0.1"
+description = "Take input from the old blog as an HTML mirror and convert it to Hugo"
+authors = [
+    {name = "Christopher Petrilli", email = "117246+petrilli@users.noreply.github.com"},
+]
+dependencies = [
+    "beautifulsoup4>=4.11.1",
+    "cchardet>=2.1.7",
+    "dateutils>=0.6.12",
+    "markdownify>=0.11.2",
+    "pyyaml>=6.0",
+]
+requires-python = ">=3.10"
+license = {text = "MIT"}
+
+[project.scripts]
+migrator = "migrator:main"
+
+[tool.pdm]
+[tool.pdm.scripts]
+migrate = "migrator.py"
+
+[tool.black]
+line-length = 88
+target-version = ['py310']
+include = '\.pyi?$'
+
+[build-system]
+requires = ["pdm-pep517>=0.12.0"]
+build-backend = "pdm.pep517.api"
